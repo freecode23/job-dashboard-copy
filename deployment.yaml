@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sherly
+  namespace: sherly
+  labels:
+    app: sherly
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sherly
+  template:
+    metadata:
+      labels:
+        app: sherly
+    spec:
+      containers:
+      # image name from ecr
+      - name: sherly-repo
+
+        # 1. from console: get ecr url 
+        image: 850136234717.dkr.ecr.us-east-2.amazonaws.com/sherly-repo:latest 
+        imagePullPolicy: "Always"
+        env:
+        - name: REACT_APP_GOOGLE_API
+          value: "AIzaSyBkXfBuW-KEHGMLXaIC_nVMTDOl3ZZxgps"
+          
+        # 2. from console: get rds url
+        - name:  MYSQL_HOST
+          value: "sherly-db.cipyiasonckx.us-east-2.rds.amazonaws.com"
+        - name: MYSQL_PORT
+          value: "3306"
+        - name: MYSQL_PASSWORD
+          value: "123456789"
+        - name: MYSQL_USER
+          value: "root"
+        - name: SERP_API
+          value: "32b7d586045b8f4bf8b17d6d12ca04382c4b7259ddde8918dadddf0bcc6ce3c1"
+
+        # 3. kubectl get svc -nsherly
+        - name: REACT_APP_BASE_URL
+          value: "http://a9354b7920bdf41f0ad72c2e8a72803f-1501472887.us-east-2.elb.amazonaws.com/api/"
+        resources:
+            limits:
+              memory: 200Mi
+              cpu: 1
+            requests:
+              memory: 100Mi
+              cpu: 100m
+        ports:
+        - containerPort: 5000

@@ -1,0 +1,42 @@
+version: '3'
+services:
+  # A. SERVER and CLIENT
+  server:
+    # 1. use this dockerfile
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    restart: always  
+    # 2. the env variable we will inject to the source code when creating pool
+    # in pool.js and SERP API in util.js
+    environment:
+      - MYSQL_HOST=sql
+      - MYSQL_PORT=3306
+      - MYSQL_PASSWORD=pass123
+      - MYSQL_USER=user
+      - SERP_API=32b7d586045b8f4bf8b17d6d12ca04382c4b7259ddde8918dadddf0bcc6ce3c1
+    env_file:
+      - ./.env
+
+    # 3. map the local port to the container's port
+    ports:
+      # - serverclient: container
+      - '3000:5000'
+
+  # B. DB
+  sql:
+    # get image from docker hub
+    image: mysql
+    restart: always
+    environment:
+      # variables we will need for SQL in the container
+      - MYSQL_USER=user
+      - MYSQL_DATABASE=jobsdb
+      - MYSQL_PASSWORD=pass123
+      - MYSQL_ROOT_PASSWORD=pass123
+    volumes:
+        - mysql-jobsdb-volume:/var/lib/mysql
+
+# volume name in docker host (local machine) to persist data
+volumes:
+  mysql-jobsdb-volume:

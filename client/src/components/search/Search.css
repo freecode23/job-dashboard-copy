@@ -1,0 +1,54 @@
+.searchForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Space Grotesk";
+}
+
+.searchItems {
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchItem {
+    display: flex;
+    color: blue;
+    font-weight: 700;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+}
+
+.searchInput {
+    font-family: "Space Grotesk";
+    font-size: 12px;
+    padding: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 15px;
+    outline: none;
+    margin-top: 10px;
+}
+
+.searchSubmitButton {
+    margin-top: 25px;
+    width: 100px;
+    height: 30px;
+    border: none;
+    color: blue;
+    background-color: white;
+    border: 2px solid blue;
+    border-radius: 30px;
+    font-size: 15px;
+    font-family: "Space Grotesk";
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.searchSubmitButton:hover {
+    color: white;
+    background-color: blue;
+}

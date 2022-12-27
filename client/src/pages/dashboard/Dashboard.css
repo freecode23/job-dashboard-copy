@@ -1,0 +1,10 @@
+.dashboard {
+    font-family: "Space Grotesk";
+    color: rgb(23, 138, 71);
+    color: blue;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

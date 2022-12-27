@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sherly
+  namespace: sherly
+  labels:
+    app: sherly
+spec:
+  ports:
+  - name: http
+    port: 80
+    targetPort: 5000
+  selector:
+    app: sherly
+  type: LoadBalancer

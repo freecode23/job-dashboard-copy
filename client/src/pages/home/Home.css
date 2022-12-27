@@ -1,0 +1,44 @@
+.home {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.homeTop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 200px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.homeDashboardIcon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 100px;
+    color: blue;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 4px;
+    border: 2px solid;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.homeFa {
+    font-size: 20px;
+}
+
+.homeDashboardIcon:hover {
+    color: white;
+    background-color: rgb(79, 213, 35);
+}

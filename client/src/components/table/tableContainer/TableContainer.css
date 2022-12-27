@@ -1,0 +1,20 @@
+.applyLinkColumn:hover {
+    color: white;
+    background-color: rgb(122, 192, 254);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.tableContainerCompany {
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.applyLinkColumn {
+    padding: 10px;
+}
+
+.tableContainerColumn {
+    padding: 10px;
+}

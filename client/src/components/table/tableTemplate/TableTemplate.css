@@ -1,0 +1,58 @@
+.table {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    justify-content: center;
+    max-width: 80%;
+    font-size: 12px;
+}
+
+.tableRow {
+    color: 'blue';
+    padding: '20px';
+    background: '#292929';
+    font-family: 'Open Sans';
+    border-collapse: "collapse"
+}
+
+.ReactTable .rt-tr {
+    color: black !important;
+    background-color: '#292929' !important;
+}
+
+tr:hover {
+    background-color: yellow !important;
+}
+
+.tableSavingJobButton {
+    width: 100px;
+    height: 50px;
+    border: none;
+    color: rgb(79, 213, 35);
+    background-color: white;
+    border: 2px solid rgb(79, 213, 35);
+    border-radius: 30px;
+    font-size: 12px;
+    font-family: "Space Grotesk";
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.tableSavedJobButton:hover {
+    color: white;
+    background-color: rgb(79, 213, 35);
+}
+
+.tableSavedJobButton {
+    width: 100px;
+    height: 50px;
+    border: none;
+    color: white;
+    background-color: rgb(79, 213, 35);
+    order: 2px solid rgb(79, 213, 35);
+    border-radius: 30px;
+    font-size: 16px;
+    font-family: "Space Grotesk";
+    font-weight: 700;
+    cursor: pointer;
+}
