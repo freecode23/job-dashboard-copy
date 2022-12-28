@@ -27,14 +27,14 @@ jobs:
       id: build-image
       env:
         REACT_APP_SOMETHING: hardcode
-        REACT_APP_GOOGLE_API: AIzaSyBkXfBuW-KEHGMLXaIC_nVMTDOl3ZZxgps
-        # REACT_APP_BASE_URL: "https://freecode.aesthisia.in/api/"
+        REACT_APP_GOOGLE_API: ${{ secrets.REACT_APP_GOOGLE_API }}
+        REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
         IMAGE_TAG: ${{ github.sha }}
       run: |
         # Build a docker container and push it to ECR 
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --build-arg REACT_APP_SOMETHING=$REACT_APP_SOMETHING .
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         echo $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG 
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG  
         
