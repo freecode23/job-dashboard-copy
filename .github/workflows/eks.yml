@@ -23,7 +23,7 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
-  
+    # create enviroment file from github secrets
     - name: Make envfile
       uses: SpicyPizza/create-envfile@v1.3
       with:
@@ -33,10 +33,6 @@ jobs:
     - name: Build, tag, and push the image to Amazon ECR
       id: build-image
       env:
-
-        REACT_APP_SOMETHING: ${{ secrets.REACT_APP_SOMETHING }}
-        REACT_APP_GOOGLE_API: AIzaSyBkXfBuW-KEHGMLXaIC_nVMTDOl3ZZxgps
-        # REACT_APP_BASE_URL: "https://freecode.aesthisia.in/api/"
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
         IMAGE_TAG: ${{ github.sha }}
