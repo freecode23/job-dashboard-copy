@@ -65,6 +65,8 @@ export default function Home() {
 
   // 4. load script and init autocomplete on component mount
   useEffect(() => {
+    console.log("hello")
+    console.log("process.env.REACT_APP_SOMETHING:", process.env.REACT_APP_SOMETHING);
     console.log("process.env.REACT_APP_BASE_URL:", process.env.REACT_APP_BASE_URL);
     console.log("process.env.REACT_APP_GOOGLE_API:", process.env.REACT_APP_GOOGLE_API);
     loadScript(
