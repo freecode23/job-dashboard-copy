@@ -65,7 +65,7 @@ export default function Home() {
 
   // 4. load script and init autocomplete on component mount
   useEffect(() => {
-    
+    console.log("process.env.REACT_APP_BASE_URL:", process.env.REACT_APP_BASE_URL);
     console.log("process.env.REACT_APP_GOOGLE_API:", process.env.REACT_APP_GOOGLE_API);
     loadScript(
       `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API}&libraries=places`,

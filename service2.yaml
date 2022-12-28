@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: freekode
+  name: freekode-svc
   namespace: freekode
   labels:
     app: freekode
@@ -12,4 +12,4 @@ spec:
     targetPort: 5000
   selector:
     app: freekode
-  type: LoadBalancer
+  type: NodePort

@@ -118,6 +118,7 @@ const searchLink = async (resultUrl) => {
  * @returns the result of job search
  */
 const callSerpApi = async (params) => {
+    console.log("serp api", process.env.SERP_API)
     const search = new SerpApi.GoogleSearch(process.env.SERP_API);
 
     return new Promise((resolve) => {

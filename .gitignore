@@ -54,8 +54,7 @@ terraform.rc
 /build
 
 # 6. misc
-/images
-.env
+/image
 .DS_Store
 .env.local
 .env.development.local
