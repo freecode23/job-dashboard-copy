@@ -34,7 +34,7 @@ jobs:
         IMAGE_TAG: ${{ github.sha }}
       run: |
         # Build a docker container and push it to ECR 
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . --build-arg REACT_APP_SOMETHING=$REACT_APP_SOMETHING --build-arg REACT_APP_BASE_URL=$REACT_APP_BASE_URL
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --build-arg REACT_APP_SOMETHING=$REACT_APP_SOMETHING --build-arg REACT_APP_BASE_URL=$REACT_APP_BASE_URL .
         echo $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG 
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG  
         
