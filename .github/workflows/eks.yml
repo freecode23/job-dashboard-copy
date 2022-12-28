@@ -26,6 +26,7 @@ jobs:
     - name: Build, tag, and push the image to Amazon ECR
       id: build-image
       env:
+
         REACT_APP_SOMETHING: ${{ secrets.REACT_APP_SOMETHING }}
         REACT_APP_GOOGLE_API: AIzaSyBkXfBuW-KEHGMLXaIC_nVMTDOl3ZZxgps
         # REACT_APP_BASE_URL: "https://freecode.aesthisia.in/api/"
@@ -34,7 +35,7 @@ jobs:
         IMAGE_TAG: ${{ github.sha }}
       run: |
         # Build a docker container and push it to ECR 
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --build-arg REACT_APP_SOMETHING=$REACT_APP_SOMETHING .
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         echo $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG 
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG  
         
