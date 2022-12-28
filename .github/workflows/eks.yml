@@ -46,5 +46,6 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
         IMAGE_TAG: ${{ github.sha }}
+        KUBECTL_VERSION: "v1.23.6"
       with:
         args: set image --namespace freekode deployment/freekode  freekode-repo=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG     
