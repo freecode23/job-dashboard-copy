@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import "./Home.css"
 import { lowerFirst } from 'lodash';
 import dotenv from "dotenv";
-import env from "react-dotenv";
 
 
 // for google api
@@ -67,11 +66,11 @@ export default function Home() {
   // 4. load script and init autocomplete on component mount
   useEffect(() => {
     console.log("hello")
-    console.log("process.env.REACT_APP_SOMETHING:", env.REACT_APP_SOMETHING);
-    console.log("env.REACT_APP_BASE_URL:", env.REACT_APP_BASE_URL);
-    console.log("env.REACT_APP_GOOGLE_API:", env.REACT_APP_GOOGLE_API);
+    console.log("process.env.REACT_APP_SOMETHING:", process.env.REACT_APP_SOMETHING);
+    console.log("process.env.REACT_APP_BASE_URL:", process.env.REACT_APP_BASE_URL);
+    console.log("process.env.REACT_APP_GOOGLE_API:", process.env.REACT_APP_GOOGLE_API);
     loadScript(
-      `https://maps.googleapis.com/maps/api/js?key=${env.REACT_APP_GOOGLE_API}&libraries=places`,
+      `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API}&libraries=places`,
        initAutoComplete)
   }, []);
 
