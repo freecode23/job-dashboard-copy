@@ -23,6 +23,13 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
+  
+    - name: Make envfile
+      uses: SpicyPizza/create-envfile@v1.3
+      with:
+        envkey_REACT_APP_GOOGLE_API: ${{ secrets.REACT_APP_GOOGLE_API}}
+        envkey_REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
+
     - name: Build, tag, and push the image to Amazon ECR
       id: build-image
       env:
