@@ -132,7 +132,8 @@ router.get('/query/:query', async function (req, res) {
     console.log("query")
     // 1. create db and table if not exists
     try {
-        await sql.createdb()
+        // need to create db manually
+        // await sql.createdb()
         await sql.createTables()
         await sql.updateJobPosted()
     } catch (err) {
