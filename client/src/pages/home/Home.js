@@ -14,13 +14,13 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export default function Home() {
-  
+
   const [title, setJobsTitle] = useState("");
   const [location, setLocation] = useState("");
   const [jobResult, setJobResult] = useState([])
   const [isLoading, setIsLoading] = useState(false);
   const [numJobsSaved, setNumJobsSaved] = useState(JSON.parse(localStorage.getItem("savedJobs")).length || 0)
-  
+
   // 1. google autocomplete
   const autoCompleteRef = useRef();
   const inputRef = useRef();
@@ -69,9 +69,19 @@ export default function Home() {
   useEffect(() => {
     // console.log("process.env.REACT_APP_BASE_URL:", process.env.REACT_APP_BASE_URL);
     // console.log("process.env.REACT_APP_GOOGLE_API:", process.env.REACT_APP_GOOGLE_API);
-    loadScript(
-      `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API}&libraries=places`,
-       initAutoComplete)
+
+    // If script not yet loaded, load it
+    const isScriptLoaded = JSON.parse(localStorage.getItem("isScriptLoaded"))
+    if (! isScriptLoaded) {
+
+      //  - load
+      loadScript(
+        `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API}&libraries=places`,
+        initAutoComplete)
+
+      // - set to true so it wontt be loaded second time
+      localStorage.setItem("isScriptLoaded", true)
+    }
   }, []);
 
   //  5. scroll to top when new job result appears
@@ -98,13 +108,13 @@ export default function Home() {
     <div className='home'>
       <div className='homeTop'>
         <SearchBar handleSubmit={handleSearchSubmit}
-                    title={title}
-                    location={location}
-                    setJobsTitle={setJobsTitle}
-                    setLocation={setLocation}
-                    inputRef={inputRef}
-                    
-                    />
+          title={title}
+          location={location}
+          setJobsTitle={setJobsTitle}
+          setLocation={setLocation}
+          inputRef={inputRef}
+
+        />
         <div className='homeDashboard'>
           <Link className="social link" to={"/dashboard"}>
             <div className='homeDashboardIcon'>
@@ -116,11 +126,11 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      {isLoading ? <LoadingSpinner /> : renderUser}
+      {isLoading ? <LoadingSpinner /> : <div></div>}
       <TableContainer
         jobResult={jobResult}
         setNumJobsSaved={setNumJobsSaved}
-        isHomeState={true}/>
+        isHomeState={true} />
     </div>
   )
 }
