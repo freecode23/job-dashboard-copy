@@ -123,13 +123,14 @@ let jobsResults = [
 ]
 
 
-// router.get('/query/:query', async function (req, res) {
-//     res.send(jobsResults)
+router.get('/query/:query', async function (req, res) {
+    console.log("fake>>>")
+    res.send(jobsResults)
 
-// })
+})
 
 router.get('/query/:query', async function (req, res) {
-    console.log("query")
+    console.log("query>>>")
     // 1. create db and table if not exists
     try {
         // need to create db manually
