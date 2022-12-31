@@ -8,6 +8,11 @@ function App() {
     localStorage.setItem("savedJobs", JSON.stringify([]))
   }
 
+  // for googlemap api script
+  if (localStorage.getItem("isScriptLoaded") == null) {
+    localStorage.setItem("isScriptLoaded", false)
+  }
+
 
   return (
     <Router>
