@@ -69,19 +69,19 @@ export default function Home() {
   useEffect(() => {
     // console.log("process.env.REACT_APP_BASE_URL:", process.env.REACT_APP_BASE_URL);
     // console.log("process.env.REACT_APP_GOOGLE_API:", process.env.REACT_APP_GOOGLE_API);
+    //  - load
+    loadScript(
+      `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API}&libraries=places`,
+      initAutoComplete)
 
     // If script not yet loaded, load it
-    const isScriptLoaded = JSON.parse(localStorage.getItem("isScriptLoaded"))
-    if (! isScriptLoaded) {
+    // const isScriptLoaded = JSON.parse(localStorage.getItem("isScriptLoaded"))
+    // if (! isScriptLoaded) {
 
-      //  - load
-      loadScript(
-        `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API}&libraries=places`,
-        initAutoComplete)
 
-      // - set to true so it wontt be loaded second time
-      localStorage.setItem("isScriptLoaded", true)
-    }
+    //   // - set to true so it wontt be loaded second time
+    //   localStorage.setItem("isScriptLoaded", true)
+    // }
   }, []);
 
   //  5. scroll to top when new job result appears

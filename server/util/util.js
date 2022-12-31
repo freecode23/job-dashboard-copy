@@ -82,6 +82,7 @@ const searchLink = async (resultUrl) => {
         // swe: https://serpapi.com/searches/5348802b0ffca492/634cff1b969c087cf7dcbf3f.html#htivrt=jobs&htidocid=FgYnJySDDoEAAAAAAAAAAA%3D%3D&fpstate=tldetail
 
         // - visit the address
+        console.log("reulstUrl", resultUrl)
         await driver.get(resultUrl);
 
         // - grab apply link element
