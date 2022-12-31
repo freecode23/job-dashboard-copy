@@ -23,6 +23,7 @@ spec:
         image: 850136234717.dkr.ecr.us-east-2.amazonaws.com/freekode-repo:latest 
         imagePullPolicy: "Always"
         # env:
+        # >>> fillt his in when first using github flow 
         # - name: REACT_APP_GOOGLE_API
         #   value: "X"
           
@@ -35,6 +36,7 @@ spec:
           value: "12345678"
         - name: MYSQL_USER
           value: "root"
+        # >>> uncomment this when first using github flow
         # - name: SERP_API
         #   value: "32b7d586045b8f4bf8b17d6d12ca04382c4b7259ddde8918dadddf0bcc6ce3c1"
 

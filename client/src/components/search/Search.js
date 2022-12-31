@@ -9,7 +9,7 @@ function SearchBar(props) {
         <div className='searchItems'>
 
           <div className="searchItem">
-            <label>Job Title</label>
+            <label>The Job Title</label>
             <input
               value={props.title}
               className="searchInput"
