@@ -35,8 +35,8 @@ spec:
           value: "12345678"
         - name: MYSQL_USER
           value: "root"
-        - name: SERP_API
-          value: "32b7d586045b8f4bf8b17d6d12ca04382c4b7259ddde8918dadddf0bcc6ce3c1"
+        # - name: SERP_API
+        #   value: "32b7d586045b8f4bf8b17d6d12ca04382c4b7259ddde8918dadddf0bcc6ce3c1"
 
         # 3. kubectl get svc -nfreekode
         - name: REACT_APP_BASE_URL
