@@ -22,9 +22,9 @@ spec:
         # 1. from console: get ecr url 
         image: 850136234717.dkr.ecr.us-east-2.amazonaws.com/freekode-repo:latest 
         imagePullPolicy: "Always"
-        env:
-        - name: REACT_APP_GOOGLE_API
-          value: "AIzaSyBkXfBuW-KEHGMLXaIC_nVMTDOl3ZZxgps"
+        # env:
+        # - name: REACT_APP_GOOGLE_API
+        #   value: "AIzaSyBkXfBuW-KEHGMLXaIC_nVMTDOl3ZZxgps"
           
         # 2. from console: get rds url
         - name:  MYSQL_HOST
