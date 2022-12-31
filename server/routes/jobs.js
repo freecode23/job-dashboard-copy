@@ -7,6 +7,7 @@ const sql = require("../db/sql.js")
 const util = require("../util/util.js")
 const { v1: uuidv1 } = require('uuid');
 
+//  Dummy data to test /query
 let jobsResults = [
     {
         id: "1",
@@ -124,7 +125,7 @@ let jobsResults = [
 
 
 // router.get('/query/:query', async function (req, res) {
-//     console.log("fake>>>")
+//     console.log("dummy>>>")
 //     res.send(jobsResults)
 
 // })
@@ -133,7 +134,7 @@ router.get('/query/:query', async function (req, res) {
     console.log("query>>>")
     // 1. create db and table if not exists
     try {
-        // need to create db manually
+        // don't use this line. We need to create db manually
         // await sql.createdb()
         await sql.createTables()
         await sql.updateJobPosted()

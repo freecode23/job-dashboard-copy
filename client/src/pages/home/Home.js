@@ -1,5 +1,6 @@
 import React from 'react'
 import SearchBar from '../../components/search/Search'
+import LoadingSpinner from "../../components/loadingSpinner/LoadingSpinner";
 import TableContainer from '../../components/table/tableContainer/TableContainer';
 import { axiosInstance } from '../../config'
 import { useState, useRef, useEffect } from 'react';
@@ -17,6 +18,7 @@ export default function Home() {
   const [title, setJobsTitle] = useState("");
   const [location, setLocation] = useState("");
   const [jobResult, setJobResult] = useState([])
+  const [isLoading, setIsLoading] = useState(false);
   const [numJobsSaved, setNumJobsSaved] = useState(JSON.parse(localStorage.getItem("savedJobs")).length || 0)
   
   // 1. google autocomplete
@@ -82,10 +84,13 @@ export default function Home() {
   // 6. handlers
   const handleSearchSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
+
     // get data and set
     const res = await axiosInstance.get(`jobs/query/loc?title=${title}&location=${location}`);
     console.log("res", res.data);
     setJobResult(res.data)
+    setIsLoading(false)
   }
 
   // 7. pass result to react table
@@ -111,6 +116,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
+      {isLoading ? <LoadingSpinner /> : renderUser}
       <TableContainer
         jobResult={jobResult}
         setNumJobsSaved={setNumJobsSaved}
