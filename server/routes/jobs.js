@@ -124,11 +124,11 @@ let jobsResults = [
 ]
 
 
-router.get('/query/:query', async function (req, res) {
-    console.log("dummy>>>")
-    res.send(jobsResults)
+// router.get('/query/:query', async function (req, res) {
+//     console.log("dummy>>>")
+//     res.send(jobsResults)
 
-})
+// })
 
 router.get('/query/:query', async function (req, res) {
     console.log("query>>>")
