@@ -6,7 +6,7 @@ metadata:
   labels:
     app: freekode
 spec:
-  replicas: 1
+  replicas: 2 # number of pods
   selector:
     matchLabels:
       app: freekode
