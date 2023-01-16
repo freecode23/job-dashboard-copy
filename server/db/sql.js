@@ -159,4 +159,4 @@ const updateQueryDate = async (queryName, newDate) => {
     }
 }
 
-module.exports = { createdb, createTables, insertJob, insertQuery, getJobsByQuery, getQuery, updateQueryDate, updateJobPosted, getJobsById}
+module.exports = { createdb, createTables, insertJob, insertQuery, getJobsByQuery, getQuery, updateQueryDate, getJobsById}
