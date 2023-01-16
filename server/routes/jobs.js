@@ -137,7 +137,7 @@ router.get('/query/:query', async function (req, res) {
         // don't use this line. We need to create db manually
         // await sql.createdb()
         await sql.createTables()
-        await sql.updateJobPosted()
+        // await sql.updateJobPosted()
     } catch (err) {
         console.log(err);
     } 

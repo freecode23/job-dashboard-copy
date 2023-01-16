@@ -74,6 +74,7 @@ const searchLink = async (resultUrl) => {
         options.headless();                             // run headless Chrome
         options.excludeSwitches(['enable-logging']);    // disable 'DevTools listening on...'
         options.addArguments(['--no-sandbox']);
+        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
         driver = await builder.setChromeOptions(options).build();
         console.log("selenium driver built");
 
@@ -146,6 +147,8 @@ const getPostedEstimate = (postedAgo) => {
         estDate = new Date(Date.now() - (86400000 * dayAgo))
     } else if (s[1] === "hour" || s[1] === "minutes" || s[1] === "hours") {
         estDate = new Date()
+    } else {
+        estDate = new Date(Date.now())
     }
     console.log("estDate=", estDate);
     return estDate.toISOString().slice(0, 10).replace('T', '')

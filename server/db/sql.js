@@ -112,23 +112,23 @@ const insertQuery = async (newQuery) => {
 }
 
 /**
- * Update jobPosted days every 24 hours
+ * Update jobPosted days every 24 hours (not needed moved it to front end)
  */
-const updateJobPosted = async() => {
-    console.log("SQL:update number of days jobs posted")
-    // 1. get all jobs
-    let sql  =`SELECT * FROM jobs`
-    try {
-        const allJobs = await pool.query(sql)
+// const updateJobPosted = async() => {
+//     console.log("SQL:update number of days jobs posted")
+//     // 1. get all jobs
+//     let sql  =`SELECT * FROM jobs`
+//     try {
+//         const allJobs = await pool.query(sql)
 
-        for(job of allJobs[0]) {
-            // console.log("job posted", job.posted);
-        }
-    } catch (err) {
-        console.log("SQL:error update job posted>>", err);
-    }
+//         for(job of allJobs[0]) {
+//             // console.log("job posted", job.posted);
+//         }
+//     } catch (err) {
+//         console.log("SQL:error update job posted>>", err);
+//     }
 
-}
+// }
 
 // Query table
 const getQuery = async (queryName) => {

@@ -43,7 +43,7 @@ function SearchBar(props) {
               className="searchSubmitButton"
               onClick={props.handleSubmit}
             >
-              Search
+              Search###
             </button>
           </div>
         </div>
