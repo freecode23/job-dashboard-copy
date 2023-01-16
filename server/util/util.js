@@ -85,6 +85,7 @@ const searchLink = async (resultUrl) => {
         console.log("resultUrl", resultUrl)
         await driver.get(resultUrl);
 
+        console.log("visited")
         // - grab apply link element
         // //*[@id="gws-plugins-horizon-jobs__job_details_page"]/div/g-scrolling-carousel/div/div/div/span/a
         const xpath = "//*[@id=\"gws-plugins-horizon-jobs__job_details_page\"]/div/g-scrolling-carousel/div/div/div/span/a"
@@ -100,7 +101,7 @@ const searchLink = async (resultUrl) => {
         // - reorder array
         sortLinks.push(applyLinks[9])
         sortLinks.push(applyLinks.slice(0, 9))
-        console.log("sortLinks", sortLinks.flat())
+        // console.log("sortLinks", sortLinks.flat())
 
     } catch (err) {
         console.error(err);
