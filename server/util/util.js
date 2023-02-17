@@ -1,6 +1,8 @@
 // Selenium
 const { Builder, Browser, By, Key, until } = require('selenium-webdriver');
 const { Options } = require('selenium-webdriver/chrome');
+
+
 require('dotenv').config();
 
 
@@ -37,18 +39,15 @@ const splitLocation = (location) => {
 const setParams = (req) => {
     const location = splitLocation(req.query.location)
     const title = req.query.title.toLowerCase()
-    console.log("location.country=",location.country)
-    console.log("location.requested=", location.country)
 
     let params = {
         q: title,
-        start: 0,
         engine: "google_jobs",
-        google_domain: "google.com",
         location_requested: location.country,
         location_used: location.country,
+        google_domain: "google.com",
         hl: "en",
-        gl: "us" // country
+        gl: "us"
     }
 
     // specific location
