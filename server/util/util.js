@@ -46,7 +46,9 @@ const setParams = (req) => {
         hl: "en",
         start: 0,
         location_requested: location.country,
-        gl: location.gl // country
+        location_used: location.country,
+        gl: location.gl, // country
+        hl: location.gl,
     }
 
     // specific location
