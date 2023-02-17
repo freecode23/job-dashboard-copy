@@ -51,9 +51,9 @@ const setParams = (req) => {
     }
 
     // specific location
-    if (location.location) {
-        params = { ...params, location: location.location.toLowerCase() }
-    }
+    // if (location.location) {
+    //     params = { ...params, location: location.location.toLowerCase() }
+    // }
 
     return params
 }
