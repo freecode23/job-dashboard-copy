@@ -152,7 +152,7 @@ router.get('/query/:query', async function (req, res) {
     // let twoDaysAgo = new Date(Date.now() + (86400000*2)).toISOString().slice(0, 10).replace('T', '')
     // let yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10).replace('T', '')
     const today = new Date().toISOString().slice(0, 10).replace('T', '')
-    const locationQuery = params.gl + (params.location? params.location : "")
+    const locationQuery = params.location_code + (params.location? params.location : "")
     const queryMade = params.q + " " + locationQuery
     let queryRes = await sql.getQuery(queryMade)
     let queryMadeDate;
