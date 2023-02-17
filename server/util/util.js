@@ -45,7 +45,7 @@ const setParams = (req) => {
         // google_domain: "google.com",
         hl: "en",
         start: 0,
-        location_used: location.country,
+        location_requested: location.country,
         gl: location.gl // country
     }
 
