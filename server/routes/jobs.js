@@ -144,7 +144,6 @@ router.get('/query/:query', async function (req, res) {
 
     // 2. set params for the search api specified in the get req
     const params = util.setParams(req)
-    console.log("search params", params)
 
     
     // 3. If the query has not been made today 
@@ -187,6 +186,8 @@ router.get('/query/:query', async function (req, res) {
             let result = await util.callSerpApi(params)
             const jobsResults = result["jobs_results"]
             const pageUrl = result["search_metadata"].raw_html_file
+            const googleJobsUrl = result["search_metadata"].google_jobs_url
+            console.log("googleJobsUrl=", googleJobsUrl);
 
             // 2. get the apply links for each of the job result
             const applyLinks = await util.searchLink(pageUrl)

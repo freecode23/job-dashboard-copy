@@ -125,7 +125,7 @@ const searchLink = async (resultUrl) => {
  */
 const callSerpApi = async (params) => {
     const search = new SerpApi.GoogleSearch(process.env.SERP_API);
-
+    console.log("finalParams=", params);
     return new Promise((resolve) => {
         const callback = async (data) => {
             // return data here
