@@ -71,7 +71,7 @@ export default function Home() {
     // console.log("process.env.REACT_APP_GOOGLE_API:", process.env.REACT_APP_GOOGLE_API);
     //  - load
     loadScript(
-      `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API}&libraries=places`,
+      `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API}&libraries=places&callback=Function.prototype`,
       initAutoComplete)
 
     // If script not yet loaded, load it
