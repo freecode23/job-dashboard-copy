@@ -38,17 +38,17 @@ const setParams = (req) => {
     const location = splitLocation(req.query.location)
     const title = req.query.title.toLowerCase()
     console.log("location.country=",location.country)
+    console.log("location.requested=", location.country)
 
     let params = {
-        engine: "google_jobs",
         q: title,
-        // google_domain: "google.com",
-        hl: "en",
         start: 0,
+        engine: "google_jobs",
+        google_domain: "google.com",
         location_requested: location.country,
         location_used: location.country,
-        gl: location.gl, // country
-        hl: location.gl,
+        hl: "en",
+        gl: "us" // country
     }
 
     // specific location
