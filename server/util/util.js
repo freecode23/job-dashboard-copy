@@ -21,10 +21,10 @@ const splitLocation = (location) => {
     if (res.length === 2) {
         // convert country to code
         gl = countries.getAlpha2Code(res[1], "en").toLowerCase()
-        return { location: res[0], gl: gl }
+        return { location: res[0], gl: gl, country: res[0] }
     } else {
         gl = countries.getAlpha2Code(res[0], "en").toLowerCase()
-        return { location: null, gl: gl }
+        return { location: null, gl: gl, country: res[0] }
     }
 }
 
@@ -37,6 +37,7 @@ const splitLocation = (location) => {
 const setParams = (req) => {
     const location = splitLocation(req.query.location)
     const title = req.query.title.toLowerCase()
+    console.log("location.country=",location.country)
 
     let params = {
         engine: "google_jobs",
@@ -44,6 +45,7 @@ const setParams = (req) => {
         // google_domain: "google.com",
         hl: "en",
         start: 0,
+        location_used: location.country,
         gl: location.gl // country
     }
 
